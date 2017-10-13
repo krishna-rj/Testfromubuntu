@@ -1,0 +1,23 @@
+Kafka tutorial:-
+https://www.youtube.com/watch?v=kDx8hZhvCQ0
+Schema-registry:
+./bin/schema-registry-start ./etc/schema-registry/schema-registry.properties
+
+Console-producer:
+./bin/kafka-avro-console-producer --broker-list localhost:9092 --topic test_hdfs \
+> --property value.schema='{"type":"record","name":"myrecord","fields":[{"name":"f1","type":"string"}]}'
+
+Console-Consumer:
+./bin/kafka-avro-console-consumer --zookeeper localhost:2181 --topic connect-test --from-beginning
+
+/command to delte kafka topics
+kafka-topics.bat --delete --zookeeper localhost:2181 --topic your_topic_name
+
+  Topic your_topic_name is marked for deletion.
+  Note: This will have no impact if delete.topic.enable is not set to true.
+
+
+//list all the topics
+
+kafka-topics.bat --list --zookeeper localhost:2181
+
